@@ -56,7 +56,7 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
     }
     final currentUser = AuthService.firebase()
         .currentUser!; //unwarp may be unsfae, the app may crash down, but this is worth because if there is no current user, it should be crash.
-    final email = currentUser.email!;
+    final email = currentUser.email;
     final owner = await _notesService.getUser(email: email);
     final newNote = await _notesService.createNote(owner: owner);
     _note = newNote;
